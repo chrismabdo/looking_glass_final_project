@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+RUN NPM INSTALL TO MAKE THE SERVER WORK!!!!
+Also run bundle exec rails webpacker:install
+run rails webpacker:install:react
+run rails generate react:install
