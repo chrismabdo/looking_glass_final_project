@@ -2,4 +2,4 @@
 <p>Find me in app/views/pages/index.html.erb</p>
 
 <%= javascript_pack_tag 'application' %>
-<%= react_component("ParentComponent") %>
+<%= react_component("ParentComponent", { user:current_user }) %>
