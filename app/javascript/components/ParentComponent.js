@@ -1,5 +1,6 @@
 import React from "react"
 import NewRecommendation from "./NewRecommendation.js"
+import ShowRecommendation from "./ShowRecommendations.js"
 import PropTypes from "prop-types"
 class ParentComponent extends React.Component {
 
@@ -12,6 +13,7 @@ class ParentComponent extends React.Component {
     return (
       <React.Fragment>
         <NewRecommendation user={this.props.user}/>
+        <ShowRecommendation user={this.props.user}/>
       </React.Fragment>
     );
   }
