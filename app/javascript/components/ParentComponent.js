@@ -6,7 +6,6 @@ class ParentComponent extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props);
     this.handleRecommendationsChange = this.handleRecommendationsChange.bind(this);
     this.state = {
       recommendations: []
@@ -15,13 +14,11 @@ class ParentComponent extends React.Component {
 
   handleRecommendationsChange() {
     let that = this
-    console.log('inside handleRecs')
     fetch('http://localhost:3000/recommendations.json', {
       method: 'GET'
     }).then((response) => {
       return response.json()
     }).then((response) => {
-      console.log(response)
       that.setState({
         recommendations: response
       })

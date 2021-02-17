@@ -22,9 +22,7 @@ class NewRecommendation extends React.Component {
         'Content-Type': 'application/json',
      },
       body: JSON.stringify(this.state)
-    }).then((response) => {
-      console.log('inside handleSubmit')
-      console.log(response)
+    }).then(() => {
       that.props.onRecommendationsChange()
     })
     event.preventDefault();
