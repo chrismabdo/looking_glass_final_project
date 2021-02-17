@@ -8,6 +8,7 @@ class RecommendationsController < ApplicationController
 
   # GET /recommendations/1 or /recommendations/1.json
   def show
+    @recommendation = Recommendation.find(params[:id])
   end
 
   # GET /recommendations/new
