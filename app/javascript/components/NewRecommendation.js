@@ -32,9 +32,9 @@ class NewRecommendation extends React.Component {
   render () {
     return (
       <form className='new-recommendation' onSubmit={this.handleSubmit}>
-        <textarea type="text" value={this.state.value} onChange={this.handleChange} placeholder="Add new recommendation..."/>
+        <textarea type="text" value={this.state.value} onChange={this.handleChange} rows='5' cols='50' placeholder="Give mans a recommendation my G..."/>
         <br />
-        <input type="submit" value="Submit" />
+        <button type="submit" value="Submit" id="new-note">New Recommendation</button>
       </form>
     )
   }
