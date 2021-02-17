@@ -1,5 +1,6 @@
 import React from "react"
 import NewRecommendation from "./NewRecommendation.js"
+import NewWishlist from "./NewWishlist.js"
 import PropTypes from "prop-types"
 class ParentComponent extends React.Component {
 
@@ -12,6 +13,7 @@ class ParentComponent extends React.Component {
     return (
       <React.Fragment>
         <NewRecommendation user={this.props.user}/>
+        <NewWishlist user={this.props.user}/>
       </React.Fragment>
     );
   }
