@@ -15,12 +15,17 @@ class NewRecommendation extends React.Component {
   }
 
   handleSubmit = (event) => {
+    let that =  this
     fetch('http://localhost:3000/recommendations', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
      },
       body: JSON.stringify(this.state)
+    }).then((response) => {
+      console.log('inside handleSubmit')
+      console.log(response)
+      that.props.onRecommendationsChange()
     })
     event.preventDefault();
     this.setState({value: ""})

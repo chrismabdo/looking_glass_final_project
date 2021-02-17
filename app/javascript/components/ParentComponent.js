@@ -6,14 +6,33 @@ class ParentComponent extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props)
+    console.log(this.props);
+    this.handleRecommendationsChange = this.handleRecommendationsChange.bind(this);
+    this.state = {
+      recommendations: []
+    }
+  }
+
+  handleRecommendationsChange() {
+    let that = this
+    console.log('inside handleRecs')
+    fetch('http://localhost:3000/recommendations.json', {
+      method: 'GET'
+    }).then((response) => {
+      return response.json()
+    }).then((response) => {
+      console.log(response)
+      that.setState({
+        recommendations: response
+      })
+    })
   }
 
   render () {
     return (
       <React.Fragment>
-        <NewRecommendation user={this.props.user}/>
-        <ShowRecommendation user={this.props.user}/>
+        <NewRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange}/>
+        <ShowRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange} recommendations={this.state.recommendations}/>
       </React.Fragment>
     );
   }
