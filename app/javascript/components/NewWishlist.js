@@ -1,6 +1,6 @@
 import React from 'react'
 
-class NewRecommendation extends React.Component {
+class NewWishlist extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,14 +16,14 @@ class NewRecommendation extends React.Component {
 
   handleSubmit = (event) => {
     let that =  this
-    fetch('http://localhost:3000/recommendations', {
+    fetch('http://localhost:3000/wishlists', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
      },
       body: JSON.stringify(this.state)
     }).then(() => {
-      that.props.onRecommendationsChange()
+      that.props.onWishlistChange()
     })
     event.preventDefault();
     this.setState({value: ""})
@@ -31,13 +31,13 @@ class NewRecommendation extends React.Component {
 
   render () {
     return (
-      <form className='new-recommendation' onSubmit={this.handleSubmit}>
-        <textarea type="text" value={this.state.value} onChange={this.handleChange} rows='5' cols='50' placeholder="Give mans a recommendation my G..."/>
+      <form className='new-wishlist' onSubmit={this.handleSubmit}>
+        <textarea type="text" value={this.state.value} onChange={this.handleChange} placeholder="Add new wishlist item..."/>
         <br />
-        <button type="submit" value="Submit" id="new-note">New Recommendation</button>
+        <input type="submit" value="Submit" />
       </form>
     )
   }
 }
 
-export default NewRecommendation
+export default NewWishlist
