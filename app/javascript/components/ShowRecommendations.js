@@ -13,6 +13,7 @@ class ShowRecommendation extends React.Component {
   render () {
     return (
       <div>
+        <h2> Your Recommendations </h2>
       <ul>
       {this.props.recommendations.map((recommendation) =>
         <div>

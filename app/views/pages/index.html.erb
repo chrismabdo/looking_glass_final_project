@@ -1,8 +1,6 @@
 <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
 
-<h1>Hello User!</h1>
-<h2> Recommendations </h2>
-<p>Here are your recommendations</p>
+<h1>Hello <%= current_user.email %>!</h1>
 
 <%= javascript_pack_tag 'application' %>
 <%= react_component("ParentComponent", { user:current_user }) %>
