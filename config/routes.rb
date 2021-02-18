@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get "/pages", to: "pages#index"
 
   resources :recommendations
+  resources :friendships
 end
