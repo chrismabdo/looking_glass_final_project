@@ -1,19 +1,11 @@
 <%= form_with(model: friendship) do |form| %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
 
-   <div class="field">
+    <div class="field">
     <%= form.label :friend_id %>
     <%= form.text_field :friend_id %>
   </div>
 
-   <div class="field">
-    <%= form.label :confirmed %>
-    <%= form.text_field :confirmed %>
-  </div>
 
   <div class="actions">
     <%= form.submit 'Send Request' %>
