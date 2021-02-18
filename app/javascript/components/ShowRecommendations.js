@@ -11,6 +11,7 @@ class ShowRecommendation extends React.Component {
   }
 
   render () {
+    console.log(this.props)
     return (
       <div id="lists">
         <h2> Your Recommendations </h2>

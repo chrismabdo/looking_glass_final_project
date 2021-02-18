@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root "pages#index"
 
   get "/pages", to: "pages#index"
+  get "/users", to: "users#index"
+  resources :users, only: [:show]
 
   resources :recommendations
 end
