@@ -12,13 +12,14 @@ class ShowRecommendation extends React.Component {
 
   render () {
     return (
-      <div>
+      <div id="lists">
         <h2> Your Recommendations </h2>
       <ul>
       {this.props.recommendations.map((recommendation) =>
-        <div>
-          {recommendation.note}
-        </div>
+        { if (recommendation.user_id === this.props.user.id) {
+            return <div> { recommendation.note } </div>
+            } 
+          }
       )}
       </ul>
       </div>

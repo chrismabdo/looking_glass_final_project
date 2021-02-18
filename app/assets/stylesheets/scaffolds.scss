@@ -10,6 +10,16 @@ body {
   width: 100%;
  }
 
+#lists {
+  border-radius: 25px;
+  border: 2px solid #fcfcfc;
+  margin: 20px;
+  width: 500px;
+  justify-content: center;
+  display: inline-block;
+  
+ }
+
 body, p, ol, ul, td {
   font-family: 'Allerta Stencil';
   font-size: 18px;
@@ -75,6 +85,15 @@ div.actions {
   cursor: pointer;
   padding: 10px;
   color: #eee;
+}
+
+#new-form {
+  display: inline-block;
+  padding: 20px;
+}
+
+textarea {
+  resize: none;
 }
 
 #new-note:hover {
