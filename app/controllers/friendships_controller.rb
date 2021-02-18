@@ -24,7 +24,7 @@ class FriendshipsController < ApplicationController
           format.json { render json: @friendship.errors, status: :unprocessable_entity }
         end
       end
-    end 
+    end
 
 
     private
