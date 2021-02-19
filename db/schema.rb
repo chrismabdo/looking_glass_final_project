@@ -30,9 +30,18 @@ ActiveRecord::Schema.define(version: 2021_02_18_114653) do
     t.index ["user_id"], name: "index_recommendations_on_user_id"
   end
 
+  create_table "recommendations2", force: :cascade do |t|
+    t.string "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_recommendations2_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "username", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -52,5 +61,6 @@ ActiveRecord::Schema.define(version: 2021_02_18_114653) do
 
   add_foreign_key "friendships", "users"
   add_foreign_key "recommendations", "users"
+  add_foreign_key "recommendations2", "users"
   add_foreign_key "wishlists", "users"
 end
