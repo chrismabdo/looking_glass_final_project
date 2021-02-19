@@ -16,3 +16,5 @@
 <% current_user.friend_requests.each do |friend| %>
 <%= friend.email %>
 <% end %>
+
+<%= link_to "New Friend", friendships_new_path %>
