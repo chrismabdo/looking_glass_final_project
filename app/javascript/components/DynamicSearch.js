@@ -1,7 +1,5 @@
 import React from 'react'
-import TextField from '@material-ui/core/TextField'; 
-import Autocomplete from '@material-ui/lab/Autocomplete'; 
-import Button from '@material-ui/core/Button';
+import ShowSearchOptions from './ShowSearchOptions.js'
 
 // call API on submit only
 // change API to use OMDB
@@ -13,7 +11,8 @@ class DynamicSearch extends React.Component {
     super(props);
     this.state = {
       myOptions: [],
-      search: ""
+      search: "",
+      showResults: false
     }
   }
 
@@ -35,17 +34,27 @@ class DynamicSearch extends React.Component {
         myOptionsArray.push(response.results[i].title) 
       } 
       this.setState({myOptions: myOptionsArray})
-    }) 
+    }).then(() => {
+      console.log(this.state)
+      this.setState({showResults: true})
+    })
     event.preventDefault();
   } 
   
   render() {
+    const shouldShowResults = this.state.showResults
     return ( 
-    <form className='new-wishlist' onSubmit={this.getDataFromAPI}>
-      <textarea type="text" value={this.state.value} onChange={this.handleChange} rows='5' cols='50' placeholder="Search for a film"/>
-      <br />
-      <button type="submit" value="Submit" id="new-note">Search</button>
-    </form>
+    <div>
+      <form className='new-wishlist' onSubmit={this.getDataFromAPI}>
+        <textarea type="text" value={this.state.value} onChange={this.handleChange} rows='5' cols='50' placeholder="Search for a film"/>
+        <br />
+        <button type="submit" value="Submit" id="new-note">Search</button>
+      </form>
+      <div>
+        {shouldShowResults ? (<ShowSearchOptions results={this.state.myOptions}/>) : (console.log('hello')) }
+      </div>
+      
+    </div>
     ); 
   }
 } 
