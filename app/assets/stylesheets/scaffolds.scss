@@ -1,22 +1,15 @@
 body {
-  height: 1000px;
-  background-color: rgba(192, 33, 12, 0.473);
-  background-image: url(https://images.unsplash.com/photo-1580775702218-1f746c0c49b0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2849&q=80);
-  color: rgb(255, 255, 255);
-  margin: 33px;
-  text-align: center;
-  background-size: cover;
-  height: 100vh;
-  width: 100%;
- }
+  background-color: #fff;
+  color: #333;
+  margin: 33px; }
 
 body, p, ol, ul, td {
-  font-family: 'Allerta Stencil';
-  font-size: 18px;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
   line-height: 18px; }
 
 pre {
-  background-color: rgba(196, 11, 11, 0.582);
+  background-color: #eee;
   padding: 10px;
   font-size: 11px; }
 
@@ -67,19 +60,6 @@ div.actions {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square; }
-
-#new-note {
-  background-color: #c00;
-  border-radius: 4px;
-  font-family: 'Allerta Stencil';
-  cursor: pointer;
-  padding: 10px;
-  color: #eee;
-}
-
-#new-note:hover {
-  box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.24),0 17px 50px 0 rgba(255, 255, 255, 0.19);
-}
 
 label {
   display: block; }

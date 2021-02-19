@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_17_105112) do
+ActiveRecord::Schema.define(version: 2021_02_19_165302) do
+
+  create_table "movies", force: :cascade do |t|
+    t.string "title"
+    t.string "release_date"
+    t.string "overview"
+    t.string "genre_ids"
+    t.string "poster_path"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "recommendations", force: :cascade do |t|
     t.string "note"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "movie_id"
+    t.index ["movie_id"], name: "index_recommendations_on_movie_id"
     t.index ["user_id"], name: "index_recommendations_on_user_id"
   end
 
@@ -37,9 +49,13 @@ ActiveRecord::Schema.define(version: 2021_02_17_105112) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "movie_id"
+    t.index ["movie_id"], name: "index_wishlists_on_movie_id"
     t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
+  add_foreign_key "recommendations", "movies"
   add_foreign_key "recommendations", "users"
+  add_foreign_key "wishlists", "movies"
   add_foreign_key "wishlists", "users"
 end

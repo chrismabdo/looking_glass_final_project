@@ -45,7 +45,7 @@ class DynamicSearch extends React.Component {
     const shouldShowResults = this.state.showResults
     return ( 
     <div>
-      <form className='new-wishlist' onSubmit={this.getDataFromAPI}>
+      <form className='new-search' onSubmit={this.getDataFromAPI}>
         <textarea type="text" value={this.state.value} onChange={this.handleChange} rows='5' cols='50' placeholder="Search for a film"/>
         <br />
         <button type="submit" value="Submit" id="new-note">Search</button>

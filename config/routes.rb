@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :movies
   get 'test/index'
   resources :wishlists
   devise_for :users
