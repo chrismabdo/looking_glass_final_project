@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-  before_action :set_friendship, only: %i[ show edit update destroy ]
+  # before_action :set_friendship, only: %i[ show edit update destroy ]
 
     def index
       @friendships = Friendship.all
@@ -11,9 +11,14 @@ class FriendshipsController < ApplicationController
 
     def create
       @friendship = Friendship.new(friendship_params)
-      @friendship.confirmed = '0'
+      @friendship.confirmed = '1'
       @friendship.user_id = current_user.id
       @friendship.save
+      redirect_to friendships_url
+    end
+
+    def update_friend
+      current_user.confirm_friend(params[:friend_id]) 
       redirect_to friendships_url
     end
 
@@ -21,7 +26,7 @@ class FriendshipsController < ApplicationController
     private
     # Use callbacks to share common setup or constraints between actions.
     def set_friendship
-      @friendship = Friendship.find(params[:id])
+      params.require(:friend_id)
     end
 
     # Only allow a list of trusted parameters through.

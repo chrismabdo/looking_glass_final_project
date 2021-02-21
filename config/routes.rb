@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "/pages", to: "pages#index"
 
-  resources :recommendations
   resources :friendships
+  post '/update_friend', to: 'friendships#update_friend', as: "update_friend"
+  resources :recommendations
 end
