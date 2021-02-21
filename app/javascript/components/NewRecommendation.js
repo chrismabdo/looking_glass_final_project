@@ -5,7 +5,7 @@ class NewRecommendation extends React.Component {
     super(props);
     this.state = {
       note: '',
-      user_id: this.props.user.id
+      //user_id: this.props.user.id
     };
   }
 

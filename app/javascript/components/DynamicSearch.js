@@ -1,5 +1,6 @@
 import React from 'react'
 import ShowSearchOptions from './ShowSearchOptions.js'
+import Modal from './Modal.js';
 
 // call API on submit only
 // change API to use OMDB
@@ -14,6 +15,7 @@ class DynamicSearch extends React.Component {
       search: "",
       showResults: false
     }
+
   }
 
   handleChange = (event) => {
