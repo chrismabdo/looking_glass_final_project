@@ -17,11 +17,15 @@ class FriendshipsController < ApplicationController
       redirect_to friendships_url
     end
 
-    def update_friend
+    def accept_friend
       current_user.confirm_friend(params[:friend_id]) 
       redirect_to friendships_url
     end
 
+    def delete_request
+      current_user.delete_request(params[:friend_id]) 
+      redirect_to friendships_url
+    end
 
     private
     # Use callbacks to share common setup or constraints between actions.

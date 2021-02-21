@@ -20,8 +20,12 @@
 <% current_user.friend_requests.each do |friend| %>
   <ul>
 <%= friend.email %>
-<form action ="/update_friend" method="post">
+<form action ="/accept_friend" method="post">
 <input type='hidden' name='friend_id' value="<%= friend.id %>">
 <input type="submit" value="Confirm">
+</form>
+<form action ="/delete_request" method="post">
+<input type='hidden' name='friend_id' value="<%= friend.id %>">
+<input type="submit" value="Decline">
 </form>
 <% end %>

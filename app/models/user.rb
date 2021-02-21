@@ -30,11 +30,11 @@ class User < ApplicationRecord
     }
    end
 
-  #  def delete_request(user)
-  #   inverse_friendships.find{|friendship| friendship.user == user
-  #   friendship.delete
-  #  }
-  #  end
+   def delete_request(user)
+    inverse_friendships.find{|friendship| friendship.user == user
+    friendship.delete
+   }
+   end
 
    def friend?(user)
      friends.include?(user)
