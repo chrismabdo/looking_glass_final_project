@@ -11,7 +11,7 @@ class FriendshipsController < ApplicationController
 
     def create
       @friendship = Friendship.new(friendship_params)
-      @friendship.confirmed = '1'
+      @friendship.confirmed = '0'
       @friendship.user_id = current_user.id
       @friendship.save
       redirect_to friendships_url
