@@ -1,5 +1,4 @@
 import React from 'react'
-import SearchModal from './SearchModal.js'
 import Modal from './Modal.js';
 import NewRecommendation from './NewRecommendation.js'
 
@@ -32,7 +31,7 @@ class ShowSearchOptions extends React.Component {
           {result}
           <Modal show={this.state.show} handleClose={this.hideModal}>
               <p>{result}</p>
-              <p><NewRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange}/></p>
+              <NewRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange}/>
             </Modal>
             <button type="button" onClick={this.showModal}>
                Expand
