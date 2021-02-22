@@ -11,13 +11,14 @@ class ShowWishlist extends React.Component {
 
   render () {
     return (
-      <div>
+      <div id="lists">
           <h2> Your Wishlist </h2>
       <ul>
-      {this.props.wishlist.map((wish) =>
-        <div>
-          {wish.note}
-        </div>
+      {this.props.wishlist.map((wish) => 
+          { if (wish.user_id === this.props.user.id) {
+            return <div> { wish.note } </div>
+            } 
+          }
       )}
       </ul>
       </div>

@@ -44,13 +44,14 @@ class ParentComponent extends React.Component {
 
 
   render () {
+    console.log(this.props)
     return (
       <React.Fragment>
 
         <NewWishlist user={this.props.user} onWishlistChange={this.handleWishlistChange}/>
         <NewRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange}/>
-        <ShowRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange} recommendations={this.state.recommendations}/>
         <ShowWishlist user={this.props.user} onWishlistChange={this.handleWishlistChange} wishlist={this.state.wishlist}/>
+        <ShowRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange} recommendations={this.state.recommendations}/>
       </React.Fragment>
     );
   }
