@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   get "/users", to: "users#index"
   resources :users, only: [:show]
 
+  resources :friendships
+  post '/accept_friend', to: 'friendships#accept_friend', as: "accept_friend"
+  post '/delete_request', to: 'friendships#delete_request', as: "delete_request"
   resources :recommendations
 end
