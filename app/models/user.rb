@@ -12,6 +12,13 @@ class User < ApplicationRecord
     friends_array.compact
    end
 
+   def friends_full_table
+    friends_array = inverse_friendships.map{|friendship| friendship.user} + friendships.map{|friendship| friendship.friend}
+    p 'PRINTING FRIENDS_FULL_TABLE'
+    p friends_array.compact
+    friends_array.compact
+   end 
+
    # Requests the user has received
    def pending_friends
      friendships.map{|friendship| friendship.friend if !friendship.confirmed}.compact
@@ -39,4 +46,11 @@ class User < ApplicationRecord
    def friend?(user)
      friends.include?(user)
    end
+
+   def in_friendship_table?(user)
+    print "PRINTING USER IN IN_FRIENDSHIP_TABLE?:"
+    print user
+    friends_full_table.include?(user)
+   end 
+
  end
