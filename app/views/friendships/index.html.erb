@@ -1,0 +1,31 @@
+<h1>Friendships for <%= current_user.email %></h1>
+
+<h2> Your friendships </h2>
+<% current_user.friends.each do |friend| %>
+  <ul>
+  <%= friend.email %>
+  </ul>
+<% end %>
+
+
+<h2> Requests you've made </h2>
+<% current_user.pending_friends.each do |friend| %>
+  <ul>
+<%= friend.email %>
+  </ul>
+<% end %>
+
+
+<h2> Requests you've recieved </h2>
+<% current_user.friend_requests.each do |friend| %>
+  <ul>
+<%= friend.email %>
+<form action ="/accept_friend" method="post">
+<input type='hidden' name='friend_id' value="<%= friend.id %>">
+<input type="submit" value="Confirm">
+</form>
+<form action ="/delete_request" method="post">
+<input type='hidden' name='friend_id' value="<%= friend.id %>">
+<input type="submit" value="Decline">
+</form>
+<% end %>

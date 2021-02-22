@@ -1,0 +1,13 @@
+<%= form_with(model: friendship) do |form| %>
+
+
+  <div class="field">
+    <%= form.label :friend_id %>
+    <%= form.text_field :friend_id %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit 'Send Request' %>
+  </div>
+<% end %>
