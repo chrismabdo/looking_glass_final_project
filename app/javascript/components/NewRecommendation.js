@@ -6,6 +6,7 @@ class NewRecommendation extends React.Component {
     console.log("In new RECOMMENDATIONs")
     console.log(this.props)
     this.state = {
+      movie_id: 0,
       note: '',
       user_id: this.props.user.id
     };

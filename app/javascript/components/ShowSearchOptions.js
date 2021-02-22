@@ -13,40 +13,46 @@ class ShowSearchOptions extends React.Component {
       show: false,
       user_id: this.props.user.id,
       activeModal: null,
-      key: null
+      id: null
     };
-    // this.showModal = this.showModal.bind(this);
-    // this.hideModal = this.hideModal.bind(this);
-    this.clickHandler = this.clickHandler.bind(this);
+    console.log(this.state)
+    this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
+    // this.clickHandler = this.clickHandler.bind(this);
+    // this.hideModal = this.hideModal.bind(this);
+    
   }
 
-  // showModal = () => {
-  //   this.setState({ show: true });
-    
-  // };
-
   showModal = (e, index) => {
-    this.setState({ showModal: true, modalId: index });
-    console.log("Index: " + index);
+    // console.log(this.props.results[0])
+    // console.log(index)
+    console.log()
+    this.setState({ show: true, buttonId: e.target.id });
+
+    
   };
 
-  // hideModal = () => {
-  //   this.setState({ show: false });
+  // showModal = (e, index) => {
+  //   this.setState({ showModal: true, modalId: index });
+  //   console.log("Index: " + index);
   // };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
 
   // hideModal = (e, index) => {
   //   this.setState({ showModal: false, modalId: index });
   //   console.log("Index: " + index);
   // };
 
-  clickHandler(e, index) {
-    this.setState({ activeModal: index })
-}
+//   clickHandler(e, index) {
+//     this.setState({ activeModal: index })
+// }
 
-  hideModal() {
-    this.setState({ activeModal: null })
-}
+//   hideModal() {
+//     this.setState({ activeModal: null })
+// }
 
   render () {
     return (
@@ -57,15 +63,16 @@ class ShowSearchOptions extends React.Component {
       {this.props.results.map((result, index) =>
         <div>
           {result}
-          <button type="button" onClick={this.showModal(index)}>
+          <button type="button" id={index} onClick={this.showModal}>
             Expand
           </button>
+          
         </div>
       )}
-      <Modal result={result} key={index} show={this.state.show} handleClose={this.hideModal(e, index)}>
-<p>{index}</p>
-<NewRecommendation user={this.props.user} onRecommendationsChange={this.props.onRecommendationsChange}/>
-</Modal>
+      <Modal result={this.props.results[this.state.buttonId]} id={this.state.buttonId} show={this.state.show} handleClose={this.hideModal}>
+          <NewRecommendation user={this.props.user} onRecommendationsChange={this.props.onRecommendationsChange}/>
+      </Modal>
+      
       </ul>
       </div>
     )
