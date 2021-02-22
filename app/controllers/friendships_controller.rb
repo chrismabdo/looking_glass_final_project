@@ -15,7 +15,7 @@ class FriendshipsController < ApplicationController
       print friendship_params[:friend_id]
       if current_user.in_friendship_table?(User.find(friendship_params[:friend_id]))
         redirect_to new_friendship_url
-        flash.alert = "Cannot send friend request to this user - maybe you've already asked? Try not coming on so strong!"
+        flash["Cannot send friend request to this user - maybe you've already asked? Try not coming on so strong!"]
       else
         @friendship = Friendship.new(friendship_params)
         @friendship.confirmed = '0'
