@@ -3,6 +3,8 @@
 <h1>Create a New Recommendation <%= current_user.email %></h1>
 
 <%= javascript_pack_tag 'application' %>
-<%# <%= react_component("ShowSearchOptions", { user:current_user }) %>
-<%= react_component("DynamicSearch", { user:current_user }) %>
-<%= react_component("NewRecommendation", { user:current_user }) %> 
+<%# <%= react_component("ShowSearchOptions", { user:current_user }) %> 
+ <%# <%= react_component("DynamicSearch", { user:current_user }) %> 
+<%# <%= react_component("NewRecommendation", { user:current_user }) %> 
+
+<%= react_component("ParentComponent", { user:current_user }) %>

@@ -6,7 +6,7 @@ class CreateMovies < ActiveRecord::Migration[6.1]
       t.string :overview
       t.string :genre_ids
       t.string :poster_path
-
+  
       t.timestamps
     end
   end

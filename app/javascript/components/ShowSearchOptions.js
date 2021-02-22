@@ -11,36 +11,61 @@ class ShowSearchOptions extends React.Component {
     console.log("ABOVE HERE")
     this.state = {
       show: false,
+      user_id: this.props.user.id,
+      activeModal: null,
+      key: null
     };
-    this.showModal = this.showModal.bind(this);
+    // this.showModal = this.showModal.bind(this);
+    // this.hideModal = this.hideModal.bind(this);
+    this.clickHandler = this.clickHandler.bind(this);
     this.hideModal = this.hideModal.bind(this);
   }
 
-  showModal = () => {
-    this.setState({ show: true });
+  // showModal = () => {
+  //   this.setState({ show: true });
+    
+  // };
+
+  showModal = (e, index) => {
+    this.setState({ showModal: true, modalId: index });
+    console.log("Index: " + index);
   };
 
-  hideModal = () => {
-    this.setState({ show: false });
-  };
+  // hideModal = () => {
+  //   this.setState({ show: false });
+  // };
+
+  // hideModal = (e, index) => {
+  //   this.setState({ showModal: false, modalId: index });
+  //   console.log("Index: " + index);
+  // };
+
+  clickHandler(e, index) {
+    this.setState({ activeModal: index })
+}
+
+  hideModal() {
+    this.setState({ activeModal: null })
+}
 
   render () {
     return (
       <div>
           <h2> Your Results </h2>
       <ul>
-      {this.props.results.map((result) =>
+      
+      {this.props.results.map((result, index) =>
         <div>
           {result}
-            <Modal show={this.state.show} handleClose={this.hideModal}>
-                <p>{result}</p>
-              </Modal>
-              
-              <button type="button" onClick={this.showModal}>
-                Expand
-              </button>
+          <button type="button" onClick={this.showModal(index)}>
+            Expand
+          </button>
         </div>
       )}
+      <Modal result={result} key={index} show={this.state.show} handleClose={this.hideModal(e, index)}>
+<p>{index}</p>
+<NewRecommendation user={this.props.user} onRecommendationsChange={this.props.onRecommendationsChange}/>
+</Modal>
       </ul>
       </div>
     )

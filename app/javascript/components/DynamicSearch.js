@@ -11,15 +11,17 @@ class DynamicSearch extends React.Component {
   
   constructor(props) {
     super(props);
-    
+    console.log("In dynamic search")
+    console.log(this.props)
+    console.log("above should be userinfo")
     this.state = {
       myOptions: [],
       search: "",
       showResults: false,
       user_id: this.props.user.id
     }
-    console.log("In dynamic search")
-    console.log(this.props.user.id)
+    
+    
   }
 
   handleChange = (event) => {
@@ -47,7 +49,7 @@ class DynamicSearch extends React.Component {
     })
     event.preventDefault();
   } 
-  
+
   render() {
     const shouldShowResults = this.state.showResults
     return ( 
@@ -58,7 +60,8 @@ class DynamicSearch extends React.Component {
         <button type="submit" value="Submit" id="new-note">Search</button>
       </form>
       <div>
-        {shouldShowResults ? (<ShowSearchOptions results={this.state.myOptions}/>) : (console.log('hello')) }
+        {console.log(this.state.myOptions)}
+        {shouldShowResults ? (<ShowSearchOptions user={this.props.user} results={this.state.myOptions} onRecommendationsChange={this.props.onRecommendationsChange}/>) : (console.log('hello')) }
       </div>
       
     </div>

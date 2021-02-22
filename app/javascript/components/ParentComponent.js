@@ -3,6 +3,7 @@ import NewRecommendation from "./NewRecommendation.js"
 import NewWishlist from "./NewWishlist.js"
 import ShowRecommendation from "./ShowRecommendations.js"
 import ShowWishlist from "./ShowWishlist.js"
+import DynamicSearch from './DynamicSearch.js'
 import PropTypes from "prop-types"
 class ParentComponent extends React.Component {
 
@@ -46,7 +47,7 @@ class ParentComponent extends React.Component {
   render () {
     return (
       <React.Fragment>
-
+        <DynamicSearch user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange}/>
         <NewWishlist user={this.props.user} onWishlistChange={this.handleWishlistChange}/>
         <NewRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange}/>
         <ShowRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange} recommendations={this.state.recommendations}/>
