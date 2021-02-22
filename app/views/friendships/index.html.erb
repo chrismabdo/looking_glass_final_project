@@ -1,4 +1,4 @@
-<h1>Friendships for <%= current_user.email %></h1>
+<h1>Friendships for <%= current_user.username %></h1>
 
 <% flash.each do |type, msg| %>
   <div>
@@ -13,7 +13,7 @@
 <h2> Your friendships </h2>
 <% current_user.friends.each do |friend| %>
   <ul>
-  <%= friend.email %>
+  <%= friend.username %>
 <%= link_to "Unfriend", delete_request_path(id: friend.id), method: :delete %>
   </ul>
 <% end %>
@@ -22,7 +22,7 @@
 <h2> Requests you've made </h2>
 <% current_user.pending_friends.each do |friend| %>
   <ul>
-<%= friend.email %>
+<%= friend.username %>
   </ul>
 <% end %>
 
@@ -30,7 +30,7 @@
 <h2> Requests you've recieved </h2>
 <% current_user.friend_requests.each do |friend| %>
   <ul>
-<%= friend.email %>
+<%= friend.username %>
 <%= link_to "Accept", accept_friend_path(id: friend.id), method: :post %>
 <%= link_to "Decline", delete_request_path(id: friend.id), method: :delete %>
 <% end %>
