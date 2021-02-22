@@ -1,5 +1,15 @@
 <h1>Friendships for <%= current_user.email %></h1>
 
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+  <br>
+<% end %>
+
+<h2> Add new friend </h2>
+<%= render 'form', friendship: @friendship %>
+
 <h2> Your friendships </h2>
 <% current_user.friends.each do |friend| %>
   <ul>

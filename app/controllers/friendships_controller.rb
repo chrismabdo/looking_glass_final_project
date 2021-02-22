@@ -3,6 +3,7 @@ class FriendshipsController < ApplicationController
 
     def index
       @friendships = Friendship.all
+      @friendship = Friendship.new
     end
 
     def new
