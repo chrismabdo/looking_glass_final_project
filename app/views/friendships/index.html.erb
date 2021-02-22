@@ -4,6 +4,7 @@
 <% current_user.friends.each do |friend| %>
   <ul>
   <%= friend.email %>
+<%= link_to "Unfriend", delete_request_path(id: friend.id), method: :delete %>
   </ul>
 <% end %>
 
@@ -20,12 +21,7 @@
 <% current_user.friend_requests.each do |friend| %>
   <ul>
 <%= friend.email %>
-<form action ="/accept_friend" method="post">
-<input type='hidden' name='friend_id' value="<%= friend.id %>">
-<input type="submit" value="Confirm">
-</form>
-<form action ="/delete_request" method="post">
-<input type='hidden' name='friend_id' value="<%= friend.id %>">
-<input type="submit" value="Decline">
-</form>
+<%= link_to "Accept", accept_friend_path(id: friend.id), method: :post %>
+<%= link_to "Decline", delete_request_path(id: friend.id), method: :delete %>
 <% end %>
+

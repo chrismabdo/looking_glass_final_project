@@ -10,6 +10,6 @@ Rails.application.routes.draw do
 
   resources :friendships
   post '/accept_friend', to: 'friendships#accept_friend', as: "accept_friend"
-  post '/delete_request', to: 'friendships#delete_request', as: "delete_request"
+  delete '/delete_request', to: 'friendships#delete_request', as: "delete_request"
   resources :recommendations
 end
