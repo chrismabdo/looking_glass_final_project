@@ -12,7 +12,6 @@ class ShowSearchOptions extends React.Component {
     this.state = {
       show: false,
       user_id: this.props.user.id,
-      activeModal: null,
       id: null
     };
     console.log(this.state)
