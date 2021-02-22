@@ -3,10 +3,13 @@ import React from 'react'
 class NewRecommendation extends React.Component {
   constructor(props) {
     super(props);
+    console.log("In new RECOMMENDATIONs")
+    console.log(this.props)
     this.state = {
       note: '',
-      //user_id: this.props.user.id
+      user_id: this.props.user.id
     };
+    
   }
 
   handleChange = (event) => {

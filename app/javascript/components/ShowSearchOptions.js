@@ -1,13 +1,16 @@
 import React from 'react'
 import Modal from './Modal.js';
 import NewRecommendation from './NewRecommendation.js'
-
+import ParentComponent from './ParentComponent.js'
 class ShowSearchOptions extends React.Component {
   constructor(props) {
     super(props)
+   
+    console.log("BELOW HERE, IN SHOWSEARCH OPTIONS")
     console.log(this.props)
+    console.log("ABOVE HERE")
     this.state = {
-    show: false
+      show: false,
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -29,13 +32,13 @@ class ShowSearchOptions extends React.Component {
       {this.props.results.map((result) =>
         <div>
           {result}
-          <Modal show={this.state.show} handleClose={this.hideModal}>
-              <p>{result}</p>
-              <NewRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange}/>
-            </Modal>
-            <button type="button" onClick={this.showModal}>
-               Expand
-            </button>
+            <Modal show={this.state.show} handleClose={this.hideModal}>
+                <p>{result}</p>
+              </Modal>
+              
+              <button type="button" onClick={this.showModal}>
+                Expand
+              </button>
         </div>
       )}
       </ul>

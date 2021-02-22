@@ -1,6 +1,7 @@
 import React from 'react'
 import ShowSearchOptions from './ShowSearchOptions.js'
 import Modal from './Modal.js';
+import NewRecommendation from './NewRecommendation.js'
 
 // call API on submit only
 // change API to use OMDB
@@ -10,12 +11,15 @@ class DynamicSearch extends React.Component {
   
   constructor(props) {
     super(props);
+    
     this.state = {
       myOptions: [],
       search: "",
-      showResults: false
+      showResults: false,
+      user_id: this.props.user.id
     }
-
+    console.log("In dynamic search")
+    console.log(this.props.user.id)
   }
 
   handleChange = (event) => {
@@ -30,6 +34,7 @@ class DynamicSearch extends React.Component {
       console.log(response)
       return response.json() 
     }).then((response) => { 
+      console.log("response.results BELOW")
       console.log(response.results) 
       var myOptionsArray = []
       for (var i = 0; i < response.results.length; i++) { 
