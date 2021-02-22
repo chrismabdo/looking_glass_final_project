@@ -4,11 +4,11 @@
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import NewRecommendation from '../components/NewRecommendation'
+import NewFriendship from '../components/NewFriendship'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <NewRecommendation />,
+    <NewFriendship/>,
     document.body.appendChild(document.createElement('div')),
   )
 })
