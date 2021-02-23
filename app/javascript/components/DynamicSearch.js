@@ -40,11 +40,16 @@ class DynamicSearch extends React.Component {
       console.log(response.results) 
       var myOptionsArray = []
       for (var i = 0; i < response.results.length; i++) { 
-        myOptionsArray.push(response.results[i].title) 
+        myOptionsArray.push([]) 
+        myOptionsArray[i].push(response.results[i].title)
+        myOptionsArray[i].push(response.results[i].id)
+        myOptionsArray[i].push(response.results[i].release_date)
       } 
       this.setState({myOptions: myOptionsArray})
     }).then(() => {
+      console.log("MOVIE INFO BELOW")
       console.log(this.state)
+      console.log("MOVIE INFO ABOVE")
       this.setState({showResults: true})
     })
     event.preventDefault();

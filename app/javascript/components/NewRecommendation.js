@@ -20,12 +20,22 @@ class NewRecommendation extends React.Component {
 
   handleSubmit = (event) => {
     let that =  this
+    this.setState({movie_id: this.props.result[1]})
     fetch('http://localhost:3000/recommendations', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
      },
-      body: JSON.stringify(this.state)
+      body: JSON.stringify(this.state.note)
+    }).then(() => {
+      that.props.onRecommendationsChange()
+    })
+    fetch('http://localhost:3000/movies', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+     },
+      body: JSON.stringify(this.state.movie_id)
     }).then(() => {
       that.props.onRecommendationsChange()
     })

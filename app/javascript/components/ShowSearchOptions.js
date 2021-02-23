@@ -61,7 +61,7 @@ class ShowSearchOptions extends React.Component {
       
       {this.props.results.map((result, index) =>
         <div>
-          {result}
+          {result[0]}, {result[2]}
           <button type="button" id={index} onClick={this.showModal}>
             Expand
           </button>
@@ -69,7 +69,7 @@ class ShowSearchOptions extends React.Component {
         </div>
       )}
       <Modal result={this.props.results[this.state.buttonId]} id={this.state.buttonId} show={this.state.show} handleClose={this.hideModal}>
-          <NewRecommendation user={this.props.user} onRecommendationsChange={this.props.onRecommendationsChange}/>
+          <NewRecommendation user={this.props.user} result={this.props.results[this.state.buttonId]} onRecommendationsChange={this.props.onRecommendationsChange}/>
       </Modal>
       
       </ul>
