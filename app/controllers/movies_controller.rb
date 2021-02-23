@@ -49,26 +49,16 @@ class MoviesController < ApplicationController
 
 
   def add_recommendation
-    @movie = Movie.find_by(api_id: params[:api_id])
+    @movie = Movie.find_by(api_id: movie_params[:api_id])
     p'--------------'
-    p params
+    p movie_params[:recommendations_attributes]
     p'--------------'
     if @movie
       p 'in the IF'
-      @movie.recommendations.new(recommendation_params)
+      @recommendation = @movie.recommendations.create(movie_params[:recommendations_attributes])
     else
       p 'in the ELSE'
-      @movie = Movie.new(movie_params)
-
-      respond_to do |format|
-        if @movie.save
-          format.html { redirect_to @movie, notice: "Movie was successfully created." }
-          format.json { render :show, status: :created, location: @movie }
-        else
-          format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @movie.errors, status: :unprocessable_entity }
-        end
-      end
+      Movie.create(movie_params)
     end
   end
 # Finds movie by API_ID
