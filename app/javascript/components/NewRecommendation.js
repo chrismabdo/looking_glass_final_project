@@ -6,7 +6,7 @@ class NewRecommendation extends React.Component {
     console.log("In new RECOMMENDATIONs")
     console.log(this.props)
     this.state = {
-      api_id: 1,
+      api_id: 0,
       note: '',
       user_id: this.props.user.id
     };
@@ -19,23 +19,32 @@ class NewRecommendation extends React.Component {
   }
 
   handleSubmit = (event) => {
-    let that =  this
-
+    let that = this
     console.log(this.props.result[1])
-
-    this.setState({api_id: this.props.result[1]})
-    console.log('wefgergthth')
-    console.log(this.state)
-    console.log('wefgergthth')
-    fetch('http://localhost:3000/movies/add_recommendation', {
+    this.setState({api_id: this.props.result[1]}, () => {
+      console.log('CALLBACK')
+      console.log(this.state)
+      console.log('CALLBACK')
+      fetch('http://localhost:3000/movies/add_recommendation', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-     },
-      body: JSON.stringify(this.state)
-    }).then(() => {
+      },
+      body: JSON.stringify({
+        movie: {
+          api_id: that.state.api_id,
+          recommendations_attributes: [{
+            note: that.state.note,
+            user_id: that.state.user_id
+          }]
+        },
+      })
+      }).then(() => {
       that.props.onRecommendationsChange()
+     })
     })
+
+  
     // fetch('http://localhost:3000/movies', {
     //   method: 'POST',
     //   headers: {

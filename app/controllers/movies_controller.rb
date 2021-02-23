@@ -51,11 +51,13 @@ class MoviesController < ApplicationController
   def add_recommendation
     @movie = Movie.find_by(api_id: params[:api_id])
     p'--------------'
-    p @movie
+    p params
     p'--------------'
     if @movie
-      p @movie
+      p 'in the IF'
+      @movie.recommendations.new(recommendation_params)
     else
+      p 'in the ELSE'
       @movie = Movie.new(movie_params)
 
       respond_to do |format|
@@ -91,6 +93,10 @@ class MoviesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movie_params
-      params.require(:movie).permit(:api_id, :title, :release_date, :overview, :genre_ids, :poster_path)
+      params.require(:movie).permit(:api_id, :title, :release_date, :overview, :genre_ids, :poster_path, recommendations_attributes: [:note, :user_id])
+    end
+
+    def recommendation_params
+      params.fetch(:recommendation, {}).permit(:note, :user_id, :movie_id)
     end
 end

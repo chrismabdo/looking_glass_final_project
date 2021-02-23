@@ -28,17 +28,17 @@ class ShowSearchOptions extends React.Component {
     console.log()
     this.setState({ show: true, buttonId: e.target.id });
 
-    fetch('http://localhost:3000/movies', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-     },
-      body: JSON.stringify(this.state)
-    }).then(() => {
-      that.props.onRecommendationsChange()
-    })
-    event.preventDefault();
-    this.setState({value: ""})
+    // fetch('http://localhost:3000/movies', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //  },
+    //   body: JSON.stringify(this.state)
+    // }).then(() => {
+    //   that.props.onRecommendationsChange()
+    // })
+    // event.preventDefault();
+    // this.setState({value: ""})
   };
 
   // showModal = (e, index) => {
