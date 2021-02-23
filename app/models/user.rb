@@ -42,6 +42,9 @@ class User < ApplicationRecord
     inverse_friendships.find{|friendship| friendship.user == user
     friendship.delete
    }
+   friendships.find{|friendship| friendship.friend == user
+    friendship.delete
+   }
    end
 
    def friend?(user)
