@@ -2,7 +2,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :authentication_keys => [:username]
+
+         validates :email, uniqueness: true
+         validates :username, uniqueness: true
 
    has_many :friendships, :class_name => "Friendship", :foreign_key => "user_id"
    has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
@@ -11,6 +14,11 @@ class User < ApplicationRecord
     friends_array = inverse_friendships.map{|friendship| friendship.user if friendship.confirmed} + friendships.map{|friendship| friendship.friend if friendship.confirmed}
     friends_array.compact
    end
+
+   def friends_full_table
+    friends_array = inverse_friendships.map{|friendship| friendship.user} + friendships.map{|friendship| friendship.friend}
+    friends_array.compact
+   end 
 
    # Requests the user has received
    def pending_friends
@@ -38,5 +46,9 @@ class User < ApplicationRecord
 
    def friend?(user)
      friends.include?(user)
+   end
+
+   def in_friendship_table?(user)
+    friends_full_table.include?(user)
    end
  end

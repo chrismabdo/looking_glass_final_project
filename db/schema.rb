@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2021_02_19_165302) do
 
   create_table "friendships", force: :cascade do |t|
@@ -50,8 +51,10 @@ ActiveRecord::Schema.define(version: 2021_02_19_165302) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "username"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
   create_table "wishlists", force: :cascade do |t|
@@ -67,6 +70,8 @@ ActiveRecord::Schema.define(version: 2021_02_19_165302) do
   add_foreign_key "friendships", "users"
   add_foreign_key "recommendations", "movies"
   add_foreign_key "recommendations", "users"
+
   add_foreign_key "wishlists", "movies"
+
   add_foreign_key "wishlists", "users"
 end

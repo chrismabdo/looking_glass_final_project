@@ -1,9 +1,20 @@
-<h1>Friendships for <%= current_user.email %></h1>
+<h1>Friendships for <%= current_user.username %></h1>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+  <br>
+<% end %>
+
+<h2> Add new friend </h2>
+<%= render 'form', friendship: @friendship %>
 
 <h2> Your friendships </h2>
 <% current_user.friends.each do |friend| %>
   <ul>
-  <%= friend.email %>
+  <%= friend.username %>
+<%= link_to "Unfriend", delete_request_path(id: friend.id), method: :delete %>
   </ul>
 <% end %>
 
@@ -11,7 +22,7 @@
 <h2> Requests you've made </h2>
 <% current_user.pending_friends.each do |friend| %>
   <ul>
-<%= friend.email %>
+<%= friend.username %>
   </ul>
 <% end %>
 
@@ -19,13 +30,8 @@
 <h2> Requests you've recieved </h2>
 <% current_user.friend_requests.each do |friend| %>
   <ul>
-<%= friend.email %>
-<form action ="/accept_friend" method="post">
-<input type='hidden' name='friend_id' value="<%= friend.id %>">
-<input type="submit" value="Confirm">
-</form>
-<form action ="/delete_request" method="post">
-<input type='hidden' name='friend_id' value="<%= friend.id %>">
-<input type="submit" value="Decline">
-</form>
+<%= friend.username %>
+<%= link_to "Accept", accept_friend_path(id: friend.id), method: :post %>
+<%= link_to "Decline", delete_request_path(id: friend.id), method: :delete %>
 <% end %>
+
