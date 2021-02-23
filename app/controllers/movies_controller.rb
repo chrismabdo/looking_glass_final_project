@@ -47,6 +47,33 @@ class MoviesController < ApplicationController
     end
   end
 
+
+  def add_recommendation
+    @movie = Movie.find_by(api_id: params[:api_id])
+    p'--------------'
+    p @movie
+    p'--------------'
+    if @movie
+      p @movie
+    else
+      @movie = Movie.new(movie_params)
+
+      respond_to do |format|
+        if @movie.save
+          format.html { redirect_to @movie, notice: "Movie was successfully created." }
+          format.json { render :show, status: :created, location: @movie }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @movie.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+  end
+# Finds movie by API_ID
+# If movie exists: create new recommendation that belongs to that movie
+# If movie doesn't exist: create new movie and add new recommendation that belongs to that movie
+
+
   # DELETE /movies/1 or /movies/1.json
   def destroy
     @movie.destroy
@@ -64,6 +91,6 @@ class MoviesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movie_params
-      params.require(:movie).permit(:title, :release_date, :overview, :genre_ids, :poster_path)
+      params.require(:movie).permit(:api_id, :title, :release_date, :overview, :genre_ids, :poster_path)
     end
 end

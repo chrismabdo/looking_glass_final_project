@@ -5,7 +5,7 @@ import ParentComponent from './ParentComponent.js'
 class ShowSearchOptions extends React.Component {
   constructor(props) {
     super(props)
-   
+
     console.log("BELOW HERE, IN SHOWSEARCH OPTIONS")
     console.log(this.props)
     console.log("ABOVE HERE")
@@ -19,7 +19,7 @@ class ShowSearchOptions extends React.Component {
     this.hideModal = this.hideModal.bind(this);
     // this.clickHandler = this.clickHandler.bind(this);
     // this.hideModal = this.hideModal.bind(this);
-    
+
   }
 
   showModal = (e, index) => {
@@ -28,7 +28,17 @@ class ShowSearchOptions extends React.Component {
     console.log()
     this.setState({ show: true, buttonId: e.target.id });
 
-    
+    fetch('http://localhost:3000/movies', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+     },
+      body: JSON.stringify(this.state)
+    }).then(() => {
+      that.props.onRecommendationsChange()
+    })
+    event.preventDefault();
+    this.setState({value: ""})
   };
 
   // showModal = (e, index) => {
@@ -58,20 +68,20 @@ class ShowSearchOptions extends React.Component {
       <div>
           <h2> Your Results </h2>
       <ul>
-      
+
       {this.props.results.map((result, index) =>
         <div>
           {result[0]}, {result[2]}
           <button type="button" id={index} onClick={this.showModal}>
             Expand
           </button>
-          
+
         </div>
       )}
       <Modal result={this.props.results[this.state.buttonId]} id={this.state.buttonId} show={this.state.show} handleClose={this.hideModal}>
           <NewRecommendation user={this.props.user} result={this.props.results[this.state.buttonId]} onRecommendationsChange={this.props.onRecommendationsChange}/>
       </Modal>
-      
+
       </ul>
       </div>
     )
