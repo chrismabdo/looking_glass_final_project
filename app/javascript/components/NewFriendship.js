@@ -10,27 +10,22 @@ class NewFriendship extends React.Component {
     }
   }
 
-  clickHandler() {
-    this.setState({
-      message: 'Goodbye!'
-    })
-    console.log(this)
-  }
-
-  handleSubmit = (event) => {
-    let that =  this
-    fetch('http://localhost:3000/friendships', {
+  const clickHandler = (event) => {
+    event.preventDefault();
+    // let id = ??? what is the friend id
+    fetch(`http://localhost:3000/accept_friend/${id}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-     },
-      body: JSON.stringify(this.state)
-    }).then(() => {
-      that.props.onFriendshipChange()
+     }
+    }).then((res) => {
+      console.log('Successful friend addition', res)
+    }).catch((err) => {
+      console.log('Something went wrong', err)
     })
-    event.preventDefault();
-    this.setState({value: ""})
   }
+
+
 
 
   render () {
