@@ -17,8 +17,6 @@ class User < ApplicationRecord
 
    def friends_full_table
     friends_array = inverse_friendships.map{|friendship| friendship.user} + friendships.map{|friendship| friendship.friend}
-    p 'PRINTING FRIENDS_FULL_TABLE'
-    p friends_array.compact
     friends_array.compact
    end 
 
@@ -51,9 +49,6 @@ class User < ApplicationRecord
    end
 
    def in_friendship_table?(user)
-    print "PRINTING USER IN IN_FRIENDSHIP_TABLE?:"
-    print user
     friends_full_table.include?(user)
-   end 
-
+   end
  end

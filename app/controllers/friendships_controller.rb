@@ -11,15 +11,13 @@ class FriendshipsController < ApplicationController
     end
 
     def create
-      friend = User.find_by(username: params[:friendship][:username])
-      p friend
-      params[:friend_id] = friend.id
-      p params
+      friend = User.find_by(username: friend_username[:username])
       if current_user.in_friendship_table?(User.find(friend.id))
-        redirect_to new_friendship_url
-        flash["Cannot send friend request to this user - maybe you've already asked? Try not coming on so strong!"]
+        redirect_to friendships_url
+        flash[:info] = "Cannot send friend request to this user - maybe you've already asked? Try not coming on so strong!"
       else
-        @friendship = Friendship.new(friendship_params)
+        @friendship = Friendship.new
+        @friendship.friend_id = friend.id
         @friendship.confirmed = '0'
         @friendship.user_id = current_user.id
         @friendship.save
@@ -43,8 +41,12 @@ class FriendshipsController < ApplicationController
       params.require(:friend_id)
     end
 
+    def friend_username 
+      params.require(:friendship).permit(:username)
+    end
+
     # Only allow a list of trusted parameters through.
     def friendship_params
-      params.require(:friendship).permit(:user_id, :friend_id, :confirmed, :username)
+      params.require(:friendship).permit(:user_id, :friend_id, :confirmed)
     end
 end
