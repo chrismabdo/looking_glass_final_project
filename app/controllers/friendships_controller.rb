@@ -23,7 +23,7 @@ class FriendshipsController < ApplicationController
     end
 
     def delete_request
-      current_user.delete_request(params[:friend_id]) 
+      current_user.delete_request(params[:friend_id])
       redirect_to friendships_url
     end
 
