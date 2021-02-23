@@ -6,13 +6,13 @@ class NewFriendship extends React.Component {
     super(props)
 
     this.state = {
-      message: 'hi'
+      accept_friend: []
     }
   }
 
-  const clickHandler = (event) => {
+  clickHandler = (event) => {
     event.preventDefault();
-    // let id = ??? what is the friend id
+    let id = 'user'
     fetch(`http://localhost:3000/accept_friend/${id}`, {
       method: 'POST',
       headers: {
@@ -25,6 +25,20 @@ class NewFriendship extends React.Component {
     })
   }
 
+  handleFriendshipChange() {
+    event.preventDefault();
+    let that = this
+    fetch('http://localhost:3000/accept_request.json', {
+      method: 'GET'
+    }).then((response) => {
+      return response.json()
+    }).then((response) => {
+      that.setState({
+        friendship: response
+      })
+    })
+  }
+
 
 
 
@@ -32,7 +46,7 @@ class NewFriendship extends React.Component {
     return (
       <div>
         <div>{this.state.message}</div>
-        <div><button onClick={this.clickHandler.bind(this)}>Acceptttttttttttt</button></div>
+        <div><button onClick={this.clickHandler.bind(this)}>Accept</button></div>
       </div>
     )
   }
