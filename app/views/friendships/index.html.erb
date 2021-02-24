@@ -13,7 +13,7 @@
 <h2> Your friendships </h2>
 <% current_user.friends.each do |friend| %>
   <ul>
-  <%= friend.username %>
+  <%= link_to friend.username, friend %>
 <%= link_to "Unfriend", delete_request_path(id: friend.id), method: :delete %>
   </ul>
 <% end %>
