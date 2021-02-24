@@ -29,3 +29,7 @@ RUN NPM INSTALL TO MAKE THE SERVER WORK!!!!
 Also run bundle exec rails webpacker:install
 run rails webpacker:install:react
 run rails generate react:install
+
+Instructions for Setting up modules for Material UI (searchbar):
+npm install @material-ui/core
+npm install @material-ui/lab
