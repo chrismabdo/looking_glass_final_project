@@ -16,7 +16,7 @@ class ShowFriendship extends React.Component {
         <h2> Your Friendships </h2>
       <ul>
       {this.props.friendships.map((friendship) =>
-        <div>
+        <div class="your-friends">
           {friendships.friend_id}
         </div>
       )}
