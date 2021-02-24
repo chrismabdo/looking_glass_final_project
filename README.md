@@ -33,3 +33,11 @@ run rails generate react:install
 Instructions for Setting up modules for Material UI (searchbar):
 npm install @material-ui/core
 npm install @material-ui/lab
+
+
+Gems installed for testing:
+- rspec-rails - testing framework for ruby on rails
+- capybara - for feature tests
+- simplecov - for test coverage
+- shoulda-matchers - provides testing for validations on models
+- factory_bot_rails - to create fake users when working with devise 
