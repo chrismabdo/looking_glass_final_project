@@ -7,9 +7,11 @@
   <br>
 <% end %>
 
+<div class="textarea">
 <h2> Add new friend </h2>
 <%= render 'form', friendship: @friendship %>
-
+</div>
+<div class="friends">
 <h2> Your friendships </h2>
 <% current_user.friends.each do |friend| %>
   <ul>
@@ -17,21 +19,21 @@
 <%= link_to "Unfriend", delete_request_path(id: friend.id), method: :delete %>
   </ul>
 <% end %>
-
-
+</div>
+<div class="friends">
 <h2> Requests you've made </h2>
 <% current_user.pending_friends.each do |friend| %>
-  <ul>
 <%= friend.username %>
-  </ul>
+  
 <% end %>
-
-
+</div>
+<div class="friends">
 <h2> Requests you've recieved </h2>
 <% current_user.friend_requests.each do |friend| %>
-  <ul>
+  
 <%= friend.username %>
 <%= link_to "Accept", accept_friend_path(id: friend.id), method: :post %>
 <%= link_to "Decline", delete_request_path(id: friend.id), method: :delete %>
 <% end %>
+</div>
 
