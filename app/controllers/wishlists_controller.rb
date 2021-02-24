@@ -4,6 +4,7 @@ class WishlistsController < ApplicationController
   # GET /wishlists or /wishlists.json
   def index
     @wishlists = Wishlist.all
+    render json: @wishlists.to_json
   end
 
   # GET /wishlists/1 or /wishlists/1.json
@@ -64,6 +65,6 @@ class WishlistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wishlist_params
-      params.require(:wishlist).permit(:note, :user_id)
+      params.require(:wishlist).permit(:note, :user_id, :movie_id)
     end
 end

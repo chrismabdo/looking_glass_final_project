@@ -2,6 +2,6 @@
 
 <%= javascript_pack_tag 'application' %>
 
-<%= react_component("ParentComponent", { user:User.find(params[:id])}) %>
+<%= react_component("ParentComponent", { current_user:current_user, user:User.find(params[:id])}) %>
 
 <%= link_to('Home', new_user_registration_path) %>
