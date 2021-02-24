@@ -1,20 +1,16 @@
 import React from 'react'
 import Modal from './Modal.js';
 import NewRecommendation from './NewRecommendation.js'
-import ParentComponent from './ParentComponent.js'
+import NewWishlist from './NewWishlist.js'
+
 class ShowSearchOptions extends React.Component {
   constructor(props) {
     super(props)
-
-    console.log("BELOW HERE, IN SHOWSEARCH OPTIONS")
-    console.log(this.props)
-    console.log("ABOVE HERE")
     this.state = {
       show: false,
       user_id: this.props.user.id,
       id: null
     };
-    console.log(this.state)
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
     // this.clickHandler = this.clickHandler.bind(this);
@@ -23,22 +19,7 @@ class ShowSearchOptions extends React.Component {
   }
 
   showModal = (e, index) => {
-    // console.log(this.props.results[0])
-    // console.log(index)
-    console.log()
     this.setState({ show: true, buttonId: e.target.id });
-
-    // fetch('http://localhost:3000/movies', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //  },
-    //   body: JSON.stringify(this.state)
-    // }).then(() => {
-    //   that.props.onRecommendationsChange()
-    // })
-    // event.preventDefault();
-    // this.setState({value: ""})
   };
 
   // showModal = (e, index) => {
@@ -79,7 +60,7 @@ class ShowSearchOptions extends React.Component {
         </div>
       )}
       <Modal result={this.props.results[this.state.buttonId]} id={this.state.buttonId} show={this.state.show} handleClose={this.hideModal}>
-          <NewRecommendation user={this.props.user} result={this.props.results[this.state.buttonId]} onRecommendationsChange={this.props.onRecommendationsChange}/>
+        {this.props.parentChecker == 'recommendation' ? (<NewRecommendation user={this.props.user} result={this.props.results[this.state.buttonId]} onRecommendationsChange={this.props.onRecommendationsChange}/>) : <NewWishlist user={this.props.user} result={this.props.results[this.state.buttonId]} onWishlistChange={this.props.onWishlistChange} /> }
       </Modal>
 
       </ul>

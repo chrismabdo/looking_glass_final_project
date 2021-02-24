@@ -3,14 +3,11 @@ import React from 'react'
 class NewRecommendation extends React.Component {
   constructor(props) {
     super(props);
-    console.log("In new RECOMMENDATIONs")
-    console.log(this.props)
     this.state = {
       api_id: 0,
       note: '',
       user_id: this.props.user.id
     };
-
   }
 
   handleChange = (event) => {
@@ -20,11 +17,7 @@ class NewRecommendation extends React.Component {
 
   handleSubmit = (event) => {
     let that = this
-    console.log(this.props.result[1])
     this.setState({api_id: this.props.result[1]}, () => {
-      console.log('CALLBACK')
-      console.log(this.state)
-      console.log('CALLBACK')
       fetch('http://localhost:3000/movies/add_recommendation', {
       method: 'POST',
       headers: {
@@ -43,17 +36,6 @@ class NewRecommendation extends React.Component {
       that.props.onRecommendationsChange()
      })
     })
-
-  
-    // fetch('http://localhost:3000/movies', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //  },
-    //   body: JSON.stringify(this.state)
-    // }).then(() => {
-    //   that.props.onRecommendationsChange()
-    // })
     event.preventDefault();
     this.setState({value: ""})
   }

@@ -2,8 +2,10 @@ import React from 'react'
 
 class NewWishlist extends React.Component {
   constructor(props) {
+    console.log('INSIDE NEWWISHLIST')
     super(props);
     this.state = {
+      api_id: 0,
       note: '',
       user_id: this.props.user.id
     };
@@ -16,14 +18,24 @@ class NewWishlist extends React.Component {
 
   handleSubmit = (event) => {
     let that =  this
-    fetch('http://localhost:3000/wishlists', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-     },
-      body: JSON.stringify(this.state)
-    }).then(() => {
-      that.props.onWishlistChange()
+    this.setState({api_id: this.props.result[1]}, () => {
+      fetch('http://localhost:3000/movies/add_wishlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+      },
+        body: JSON.stringify({
+          movie: {
+            api_id: that.state.api_id,
+            wishlists_attributes: [{
+              note: that.state.note,
+              user_id: that.state.user_id
+            }]
+          },
+        })
+      }).then(() => {
+        that.props.onWishlistChange()
+      })
     })
     event.preventDefault();
     this.setState({value: ""})

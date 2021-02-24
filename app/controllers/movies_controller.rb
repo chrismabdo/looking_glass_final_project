@@ -61,10 +61,21 @@ class MoviesController < ApplicationController
       Movie.create(movie_params)
     end
   end
-# Finds movie by API_ID
-# If movie exists: create new recommendation that belongs to that movie
-# If movie doesn't exist: create new movie and add new recommendation that belongs to that movie
 
+  def add_wishlist
+    p 'INSIDE ADD_WISHLIST'
+    @movie = Movie.find_by(api_id: movie_params[:api_id])
+    p'--------------'
+    p movie_params[:wishlists_attributes]
+    p'--------------'
+    if @movie
+      p 'in the IF'
+      @wishlist = @movie.wishlists.create(movie_params[:wishlists_attributes])
+    else
+      p 'in the ELSE'
+      Movie.create(movie_params)
+    end
+  end
 
   # DELETE /movies/1 or /movies/1.json
   def destroy
@@ -83,7 +94,7 @@ class MoviesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def movie_params
-      params.require(:movie).permit(:api_id, :title, :release_date, :overview, :genre_ids, :poster_path, recommendations_attributes: [:note, :user_id])
+      params.require(:movie).permit(:api_id, :title, :release_date, :overview, :genre_ids, :poster_path, recommendations_attributes: [:note, :user_id], wishlists_attributes: [:note, :user_id])
     end
 
     def recommendation_params
