@@ -3,6 +3,16 @@ body {
   color: #333;
   margin: 33px; }
 
+#lists {
+  border-radius: 25px;
+  border: 2px solid #fcfcfc;
+  margin: 20px;
+  width: 500px;
+  justify-content: center;
+  display: inline-block;
+  
+ }
+
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -60,6 +70,29 @@ div.actions {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square; }
+
+
+#new-note {
+  background-color: #c00;
+  border-radius: 4px;
+  font-family: 'Allerta Stencil';
+  cursor: pointer;
+  padding: 10px;
+  color: #eee;
+}
+
+#new-form {
+  display: inline-block;
+  padding: 20px;
+}
+
+textarea {
+  resize: none;
+}
+
+#new-note:hover {
+  box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.24),0 17px 50px 0 rgba(255, 255, 255, 0.19);
+}
 
 label {
   display: block; }

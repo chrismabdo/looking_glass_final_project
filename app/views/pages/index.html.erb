@@ -1,6 +1,12 @@
 <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
 
-<h1>Hello <%= current_user.email %>!</h1>
+<% if user_signed_in? %>
+  <h1>Hello <%= current_user.username %>!</h1>
+<% end %>
 
 <%= javascript_pack_tag 'application' %>
 <%= react_component("ParentComponent", { user:current_user }) %>
+
+<!-- <button href='http://localhost:3000/friendships' </button> -->
+
+<%= link_to "Friends", friendships_path %>

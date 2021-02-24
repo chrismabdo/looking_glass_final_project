@@ -1,0 +1,13 @@
+<h1>New Friendship</h1>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+  <br>
+<% end %>
+
+<%= render 'form', friendship: @friendship %>
+
+<%= link_to 'Back', friendships_path %>
+
