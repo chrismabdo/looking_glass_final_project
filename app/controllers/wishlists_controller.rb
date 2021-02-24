@@ -65,6 +65,6 @@ class WishlistsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def wishlist_params
-      params.require(:wishlist).permit(:note, :user_id)
+      params.require(:wishlist).permit(:note, :user_id, :movie_id)
     end
 end

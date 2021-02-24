@@ -23,8 +23,6 @@ class ParentComponent extends React.Component {
     }).then((response) => {
       return response.json()
     }).then((response) => {
-      console.log('RECOMMENDATIONS API RETURN:')
-      console.log(response)
       that.setState({
         recommendations: response
       })
@@ -38,8 +36,6 @@ class ParentComponent extends React.Component {
     }).then((response) => {
       return response.json()
     }).then((response) => {
-      console.log('WISHLISTS API RETURN:')
-      console.log(response)
       that.setState({
         wishlist: response
       })
