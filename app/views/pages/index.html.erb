@@ -9,4 +9,6 @@
 
 <!-- <button href='http://localhost:3000/friendships' </button> -->
 
-<%= link_to "Friends", friendships_path %>
+<% if user_signed_in? %>
+  <%= link_to "Friends", friendships_path %>
+<% end %>
