@@ -16,7 +16,7 @@
 <% current_user.friends.each do |friend| %>
   <ul>
   <%= link_to friend.username, friend %>
-<%= link_to "Unfriend", delete_request_path(id: friend.id), method: :delete %>
+  <%= link_to "Unfriend", delete_request_path(id: friend.id), method: :delete %>
   </ul>
 <% end %>
 </div>
@@ -35,5 +35,6 @@
 <%= link_to "Accept", accept_friend_path(id: friend.id), method: :post %>
 <%= link_to "Decline", delete_request_path(id: friend.id), method: :delete %>
 <% end %>
+
 </div>
 

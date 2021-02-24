@@ -20,7 +20,7 @@ body {
   width: 500px;
   justify-content: center;
   display: inline-block;
-  
+
  }
 
 body, p, ol, ul, td {
@@ -132,7 +132,7 @@ footer {
   border-top: solid;
 }
 
-header { 
+header {
   position: fixed;
   left: 0;
   width: 100%;
@@ -144,12 +144,23 @@ header {
 }
 
 #title {
+  text-decoration: none;
   position: absolute;
   left: 10px;
   top: 10px;
 }
 
+#title a {
+  color: white;
+  text-decoration: none;
+}
+
+#app-name {
+  text-decoration: none;
+}
+
 #home-buttons {
+  color: white;
   position: absolute;
   top: 30px;
   left: 1150px;
@@ -189,3 +200,8 @@ input[type=text], select {
   padding: 7px;
   font-size: 15px;
 }
+
+#home-buttons a {
+  color: white;
+}
+
