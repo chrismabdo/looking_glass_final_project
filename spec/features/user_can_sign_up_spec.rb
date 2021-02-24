@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Sign-Up", type: :feature do
-  it 'can sign you in' do
+  it 'can sign you up to looking glass' do
     visit "/users/sign_up"
     fill_in "user_email", with: "ian@acebook.com"
     fill_in "user_username", with: "Ian"
