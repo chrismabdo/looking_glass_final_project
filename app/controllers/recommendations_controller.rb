@@ -3,6 +3,7 @@ class RecommendationsController < ApplicationController
   # GET /recommendations or /recommendations.json
   def index
     @recommendations = Recommendation.all
+    render json: @recommendations.to_json
   end
 
   # GET /recommendations/1 or /recommendations/1.json
@@ -21,11 +22,7 @@ class RecommendationsController < ApplicationController
 
   # POST /recommendations or /recommendations.json
   def create
-    p '------------'
-    p recommendation_params
-    p '------------'
     @recommendation = Recommendation.new(recommendation_params)
-
     respond_to do |format|
       if @recommendation.save
         format.html { redirect_to @recommendation, notice: "Recommendation was successfully created." }

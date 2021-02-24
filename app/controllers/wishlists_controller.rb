@@ -4,6 +4,7 @@ class WishlistsController < ApplicationController
   # GET /wishlists or /wishlists.json
   def index
     @wishlists = Wishlist.all
+    render json: @wishlists.to_json
   end
 
   # GET /wishlists/1 or /wishlists/1.json
