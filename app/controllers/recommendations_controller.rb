@@ -2,7 +2,7 @@ class RecommendationsController < ApplicationController
   before_action :set_recommendation, only: %i[ show edit update destroy ]
   # GET /recommendations or /recommendations.json
   def index
-    @recommendations = Recommendation.all
+    @recommendations = Recommendation.select("note, user_id, recommendations.id, movies.id AS movie_id, title, release_date, overview, poster_path, api_id").joins("INNER JOIN movies ON recommendations.movie_id = movies.id")
     render json: @recommendations.to_json
   end
 
