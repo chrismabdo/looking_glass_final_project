@@ -47,11 +47,10 @@ class ParentComponent extends React.Component {
     console.log(this.props)
     return (
       <React.Fragment>
-        <RecommendationDynamicSearch user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange}/>
-        <WishlistDynamicSearch user={this.props.user} onWishlistChange={this.handleWishlistChange}/>
+        <div>
         <ShowRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange} recommendations={this.state.recommendations}/>
         <ShowWishlist user={this.props.user} onWishlistChange={this.handleWishlistChange} wishlist={this.state.wishlist}/>
-        <ShowRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange} recommendations={this.state.recommendations}/>
+        </div>
       </React.Fragment>
     );
   }

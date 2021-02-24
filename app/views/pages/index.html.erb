@@ -10,7 +10,8 @@
 
 <%= javascript_pack_tag 'application' %>
 <%= react_component("ParentComponent", { user:current_user }) %>
-
-<!-- <button href='http://localhost:3000/friendships' </button> -->
-
+ <div>
+  <input type="button" class='inline' onclick="location.href='/recommendations/new'" value="Create New Recommendation" />
+  <input type="button" class='inline' onclick="location.href='/wishlists/new'" value="Create New Wishlist Item" />
+</div>
 
