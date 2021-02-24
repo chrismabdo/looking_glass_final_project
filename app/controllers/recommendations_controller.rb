@@ -1,6 +1,5 @@
 class RecommendationsController < ApplicationController
   before_action :set_recommendation, only: %i[ show edit update destroy ]
-
   # GET /recommendations or /recommendations.json
   def index
     @recommendations = Recommendation.all
@@ -22,6 +21,9 @@ class RecommendationsController < ApplicationController
 
   # POST /recommendations or /recommendations.json
   def create
+    p '------------'
+    p recommendation_params
+    p '------------'
     @recommendation = Recommendation.new(recommendation_params)
 
     respond_to do |format|
@@ -65,6 +67,6 @@ class RecommendationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recommendation_params
-      params.require(:recommendation).permit(:note, :user_id)
+      params.require(:recommendation).permit(:note, :user_id, :movie_id)
     end
 end

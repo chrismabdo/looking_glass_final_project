@@ -10,12 +10,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+<%= render "layouts/header" %>
+
   <body>
 
-    <%= yield %>
+    <%=yield %>
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
 
 
     <% if user_signed_in? %>
@@ -30,8 +33,11 @@
         <%= link_to('Register', new_user_registration_path) %>
       <disabled></li>
     <% end %>
-
+        
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   </body>
+
+<%= render "layouts/footer" %>
+
 </html>
