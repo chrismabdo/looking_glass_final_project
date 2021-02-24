@@ -1,7 +1,16 @@
 body {
-  background-color: #fff;
-  color: #333;
-  margin: 33px; }
+  height: 1000px;
+  background-color: rgba(192, 33, 12, 0.473);
+  background-image: url(https://images.unsplash.com/photo-1580775702218-1f746c0c49b0?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=2849&q=80);
+  color: rgb(255, 255, 255);
+  margin: 33px;
+  text-align: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 100px;
+ }
 
 #lists {
   border-radius: 25px;
@@ -14,9 +23,11 @@ body {
  }
 
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px; }
+
+  font-family: 'Allerta Stencil';
+  font-size: 18px;
+  line-height: 20px;
+ }
 
 pre {
   background-color: #eee;
@@ -96,3 +107,36 @@ textarea {
 
 label {
   display: block; }
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(117, 107, 107, 0.651);
+  opacity: 0.6;
+  border-top: solid;
+}
+
+header { 
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background: rgba(117, 107, 107, 0.651);
+  padding: 40px;
+  top: 0px;
+  opacity: 0.6;
+  border-bottom: solid;
+}
+
+#title {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+#home-buttons {
+  position: absolute;
+  top: 40px;
+  left: 1250px;
+}
