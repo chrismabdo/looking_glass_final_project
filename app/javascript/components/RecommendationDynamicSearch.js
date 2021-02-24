@@ -5,9 +5,6 @@ class RecommendationDynamicSearch extends React.Component {
   
   constructor(props) {
     super(props);
-    console.log("In dynamic search")
-    console.log(this.props)
-    console.log("above should be userinfo")
     this.state = {
       myOptions: [],
       search: "",
@@ -22,18 +19,17 @@ class RecommendationDynamicSearch extends React.Component {
   }
   
   getDataFromAPI = (event) => { 
-    console.log("Options Fetched from API") 
-  
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=cefce1b3b47a75252c7fa3fc7699a6a8&query=${this.state.search.split(' ').join('+')}`).then((response) => { 
       return response.json() 
     }).then((response) => { 
-      console.log(response.results)
       var myOptionsArray = []
       for (var i = 0; i < response.results.length; i++) { 
         myOptionsArray.push([]) 
         myOptionsArray[i].push(response.results[i].title)
         myOptionsArray[i].push(response.results[i].id)
         myOptionsArray[i].push(response.results[i].release_date)
+        myOptionsArray[i].push(response.results[i].overview)
+        myOptionsArray[i].push(response.results[i].poster_path)
       } 
       this.setState({myOptions: myOptionsArray})
     }).then(() => {
@@ -52,7 +48,6 @@ class RecommendationDynamicSearch extends React.Component {
         <button type="submit" value="Submit" id="new-note">Search</button>
       </form>
       <div>
-        {console.log(this.state.myOptions)}
         {shouldShowResults ? (<ShowSearchOptions user={this.props.user} results={this.state.myOptions} onRecommendationsChange={this.props.onRecommendationsChange} parentChecker={'recommendation'}/>) : (console.log('hello')) }
       </div>
     </div>
