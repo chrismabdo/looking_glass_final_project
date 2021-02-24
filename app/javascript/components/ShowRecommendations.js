@@ -28,7 +28,7 @@ class ShowRecommendation extends React.Component {
         { if (recommendation.user_id === this.props.user.id) {
             return <div> 
               { recommendation.note }
-              <NewWishlistButton key={recommendation.id} movie_id={recommendation.movie_id} user={this.props.user} currentUser={this.props.currentUser}/>
+              { this.props.currentUser.id == this.props.user.id ? null : <NewWishlistButton key={recommendation.id} movie_id={recommendation.movie_id} user={this.props.user} currentUser={this.props.currentUser}/>}
               </div>
             } 
           }
