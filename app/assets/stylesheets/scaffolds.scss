@@ -8,6 +8,8 @@ body {
   background-size: cover;
   height: 100vh;
   width: 100%;
+  position: fixed;
+  top: 100px;
  }
 
 #lists {
@@ -23,7 +25,8 @@ body {
 body, p, ol, ul, td {
   font-family: 'Allerta Stencil';
   font-size: 18px;
-  line-height: 18px; }
+  line-height: 20px;
+ }
 
 pre {
   background-color: rgba(196, 11, 11, 0.582);
@@ -102,3 +105,36 @@ textarea {
 
 label {
   display: block; }
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(117, 107, 107, 0.651);
+  opacity: 0.6;
+  border-top: solid;
+}
+
+header { 
+  position: fixed;
+  left: 0;
+  width: 100%;
+  background: rgba(117, 107, 107, 0.651);
+  padding: 40px;
+  top: 0px;
+  opacity: 0.6;
+  border-bottom: solid;
+}
+
+#title {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+#home-buttons {
+  position: absolute;
+  top: 40px;
+  left: 1250px;
+}

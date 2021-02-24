@@ -4,6 +4,9 @@ import NewWishlist from "./NewWishlist.js"
 import ShowRecommendation from "./ShowRecommendations.js"
 import ShowWishlist from "./ShowWishlist.js"
 import PropTypes from "prop-types"
+import ReactDOM from 'react-dom';
+
+
 class ParentComponent extends React.Component {
 
   constructor(props) {
@@ -47,7 +50,6 @@ class ParentComponent extends React.Component {
     console.log(this.props)
     return (
       <React.Fragment>
-
         <NewWishlist user={this.props.user} onWishlistChange={this.handleWishlistChange}/>
         <NewRecommendation user={this.props.user} onRecommendationsChange={this.handleRecommendationsChange}/>
         <ShowWishlist user={this.props.user} onWishlistChange={this.handleWishlistChange} wishlist={this.state.wishlist}/>
@@ -58,3 +60,4 @@ class ParentComponent extends React.Component {
 }
 
 export default ParentComponent
+
