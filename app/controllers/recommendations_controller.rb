@@ -2,7 +2,8 @@ class RecommendationsController < ApplicationController
   before_action :set_recommendation, only: %i[ show edit update destroy ]
   # GET /recommendations or /recommendations.json
   def index
-    @recommendations = Recommendation.all
+    @recommendations = Recommendation.select("note, user_id, recommendations.id, movies.id AS movie_id, title, release_date, overview, poster_path, api_id").joins("INNER JOIN movies ON recommendations.movie_id = movies.id")
+    render json: @recommendations.to_json
   end
 
   # GET /recommendations/1 or /recommendations/1.json
@@ -21,11 +22,7 @@ class RecommendationsController < ApplicationController
 
   # POST /recommendations or /recommendations.json
   def create
-    p '------------'
-    p recommendation_params
-    p '------------'
     @recommendation = Recommendation.new(recommendation_params)
-
     respond_to do |format|
       if @recommendation.save
         format.html { redirect_to @recommendation, notice: "Recommendation was successfully created." }
