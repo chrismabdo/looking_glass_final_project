@@ -9,7 +9,8 @@ class ShowSearchOptions extends React.Component {
     this.state = {
       show: false,
       user_id: this.props.user.id,
-      id: null
+      id: null,
+      titles: []
     };
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -46,20 +47,22 @@ class ShowSearchOptions extends React.Component {
 
   render () {
     return (
-      <div>
+      <div class="search-result-list">
           <h2> Your Results </h2>
       <ul>
-
       {this.props.results.map((result, index) =>
         <div>
           {result[0]}, {result[2]}
+          
           <button type="button" id={index} onClick={this.showModal}>
             Expand
           </button>
-
+          
+          
         </div>
       )}
       <Modal result={this.props.results[this.state.buttonId]} id={this.state.buttonId} show={this.state.show} handleClose={this.hideModal}>
+
         {this.props.parentChecker == 'recommendation' ? (<NewRecommendation user={this.props.user} result={this.props.results[this.state.buttonId]} onRecommendationsChange={this.props.onRecommendationsChange}/>) : <NewWishlist user={this.props.user} result={this.props.results[this.state.buttonId]} onWishlistChange={this.props.onWishlistChange} /> }
       </Modal>
 

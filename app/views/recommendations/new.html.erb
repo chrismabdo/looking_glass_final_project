@@ -1,5 +1,5 @@
+<div>
 <h1>New Recommendation</h1>
 
-<%= render 'form', recommendation: @recommendation %>
-
-<%= link_to 'Back', recommendations_path %>
+<%= react_component("RecommendationDynamicSearch", { user:current_user }) %>
+</div>

@@ -20,19 +20,24 @@
   </ul>
 <% end %>
 </div>
+
 <div class="friends">
 <h2> Requests you've made </h2>
 <% current_user.pending_friends.each do |friend| %>
+<div class="sent-requests">
 <%= friend.username %>
+</div>
 <% end %>
 </div>
 
 <div class="friends">
 <h2> Requests you've recieved </h2>
 <% current_user.friend_requests.each do |friend| %>
+<div class="received-requests">
 <%= friend.username %>
 <%= link_to "Accept", accept_friend_path(id: friend.id), method: :post %>
 <%= link_to "Decline", delete_request_path(id: friend.id), method: :delete %>
+</div>
 <% end %>
 
 </div>

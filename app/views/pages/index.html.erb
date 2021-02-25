@@ -2,15 +2,17 @@
 
 <% if user_signed_in? %>
   <h1>Hello <%= current_user.username %>!</h1>
-<% else %>
-  <li>
-    <%= link_to('Login', new_user_session_path) %>
-  </li>
+  <%= react_component("ParentComponent", { user:current_user }) %>
+
+   <div>
+  <input type="button" class='inline' onclick="location.href='/recommendations/new'" value="Create New Recommendation" />
+  <input type="button" class='inline' onclick="location.href='/wishlists/new'" value="Create New Wishlist Item" />
+</div>
+
+ 
 <% end %>
 
 <%= javascript_pack_tag 'application' %>
-<%= react_component("ParentComponent", { user:current_user, current_user:current_user }) %>
 
-<!-- <button href='http://localhost:3000/friendships' </button> -->
 
 
