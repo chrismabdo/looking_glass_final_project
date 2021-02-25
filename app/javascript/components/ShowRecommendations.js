@@ -1,15 +1,27 @@
 import React from 'react'
 import NewWishlistButton from './NewWishlistButton.js'
-// import moment from 'moment';
-
+import Modal from './Modal.js'
 class ShowRecommendation extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      show: false
+    }
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
   }
 
   componentDidMount(){
     this.props.onRecommendationsChange()
   }
+
+  showModal = (e, index) => {
+    this.setState({ show: true, buttonId: e.target.id });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
 
   render () {
     let heading;
@@ -22,16 +34,22 @@ class ShowRecommendation extends React.Component {
       <div id="lists">
         {heading}
       <ul>
-      {this.props.recommendations.map((recommendation) =>
+      {this.props.recommendations.map((recommendation, index) =>
         { if (recommendation.user_id === this.props.user.id) {
             return <div class="user-tickets"> 
               <h3>{ recommendation.title } </h3>
               "{ recommendation.note }"
+              <button type="button" id={index} onClick={this.showModal}>
+                Expand
+              </button>
               { this.props.currentUser.id == this.props.user.id ? null : <NewWishlistButton key={recommendation.id} movie_id={recommendation.movie_id} user={this.props.user} currentUser={this.props.currentUser}/>}
               </div>
             } 
           }
       )}
+      <Modal result={this.props.recommendations[this.state.buttonId]} id={this.state.buttonId} show={this.state.show} handleClose={this.hideModal}>
+
+      </Modal>
       </ul>
       </div>
     )
