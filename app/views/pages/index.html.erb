@@ -6,15 +6,14 @@
   </div>
   <%= react_component("ParentComponent", { user:current_user, current_user:current_user }) %>
 
-   <div>
-  <input type="button" class='inline' onclick="location.href='/recommendations/new'" value="Create New Recommendation" />
-  <input type="button" class='inline' onclick="location.href='/wishlists/new'" value="Create New Wishlist Item" />
-</div>
+  <div>
+    <input type="button" class='inline' onclick="location.href='/recommendations/new'" value="Create New Recommendation" />
+    <input type="button" class='inline' onclick="location.href='/wishlists/new'" value="Create New Wishlist Item" />
+  </div>
 
- 
+  <%= react_component("ParentComponent", { user:current_user, current_user:current_user }) %>
+<% else %>
+  <img src="https://i.imgur.com/CLsJCif.jpg" alt="Bean">
 <% end %>
 
 <%= javascript_pack_tag 'application' %>
-
-
-

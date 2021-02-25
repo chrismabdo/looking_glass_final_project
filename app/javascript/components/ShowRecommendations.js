@@ -46,7 +46,7 @@ class ShowRecommendation extends React.Component {
               </button>
               { this.props.currentUser.id == this.props.user.id ? null : <NewWishlistButton key={recommendation.id} movie_id={recommendation.movie_id} user={this.props.user} currentUser={this.props.currentUser}/>}
               </div>
-            } 
+            }
           }
       )}
       <HomePageModal result={this.props.recommendations[this.state.buttonId]} id={this.state.buttonId} show={this.state.show} handleClose={this.hideModal} />
