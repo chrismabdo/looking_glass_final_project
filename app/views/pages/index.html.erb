@@ -1,7 +1,10 @@
 <link href='https://fonts.googleapis.com/css?family=Allerta Stencil' rel='stylesheet'>
 
 <% if user_signed_in? %>
+  <div id="greeting">
   <h1>Hello <%= current_user.username %>!</h1>
+  </div>
+  <%= react_component("ParentComponent", { user:current_user, current_user:current_user }) %>
 
   <div>
     <input type="button" class='inline' onclick="location.href='/recommendations/new'" value="Create New Recommendation" />
