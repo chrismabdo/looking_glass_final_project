@@ -6,7 +6,10 @@ const Modal = ({ t, handleClose, id, show, children, result }) => {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-      <p>{result}</p>
+      
+      <p>{result ? result[0] : null }</p>
+      <p>{result ? result[2] : null }</p>
+      <p>{result ? result[3] : null }</p>
         {children}
         <button type="button" id="new-note"onClick={handleClose}>
           Close
