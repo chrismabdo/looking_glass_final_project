@@ -131,6 +131,7 @@ footer {
   background: rgba(117, 107, 107, 0.651);
   opacity: 0.6;
   border-top: solid;
+  z-index: -1;
 }
 
 header {
@@ -142,6 +143,7 @@ header {
   top: 0px;
   opacity: 0.6;
   border-bottom: solid;
+  z-index: -1;
 }
 
 #title {
@@ -269,7 +271,7 @@ input[type=button] {
     rgb(255, 51, 0), #f09206
   );
   border-radius: 25px;
-  border-color: rgb(255, 255, 255);
+  border-color: rgb(0, 0, 0);
   width: 20%;
   display: block;
     margin-left: auto;
