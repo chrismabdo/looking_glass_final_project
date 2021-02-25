@@ -1,11 +1,14 @@
 import React from 'react'
 import NewWishlistButton from './NewWishlistButton.js'
-import Modal from './Modal.js'
+import HomePageModal from './HomePageModal.js'
 class ShowRecommendation extends React.Component {
   constructor(props) {
     super(props)
+    console.log('SHOWREC PROPS')
+    console.log(this.props)
     this.state = {
-      show: false
+      show: false,
+      usersRecommendations: []
     }
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -36,7 +39,8 @@ class ShowRecommendation extends React.Component {
       <ul>
       {this.props.recommendations.map((recommendation, index) =>
         { if (recommendation.user_id === this.props.user.id) {
-            return <div class="user-tickets"> 
+            this.state.usersRecommendations.push(recommendation)
+            return <div className="user-tickets"> 
               <h3>{ recommendation.title } </h3>
               "{ recommendation.note }"
               <button type="button" id={index} onClick={this.showModal}>
@@ -47,9 +51,7 @@ class ShowRecommendation extends React.Component {
             } 
           }
       )}
-      <Modal result={this.props.recommendations[this.state.buttonId]} id={this.state.buttonId} show={this.state.show} handleClose={this.hideModal}>
-
-      </Modal>
+      <HomePageModal result={this.props.recommendations[this.state.buttonId]} id={this.state.buttonId} show={this.state.show} handleClose={this.hideModal} />
       </ul>
       </div>
     )
