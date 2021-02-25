@@ -22,7 +22,7 @@ class ShowWishlist extends React.Component {
       <ul>
       {this.props.wishlist.map((wish) => 
           { if (wish.user_id === this.props.user.id) {
-            return <div> { wish.note } </div>
+            return <div> { wish.title } </div>
             } 
           }
       )}

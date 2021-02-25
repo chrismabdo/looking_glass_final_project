@@ -3,7 +3,7 @@ class WishlistsController < ApplicationController
 
   # GET /wishlists or /wishlists.json
   def index
-    @wishlists = Wishlist.all
+    @wishlists = Wishlist.select("note, user_id, wishlists.id, title, release_date, overview, poster_path, api_id").joins("INNER JOIN movies ON wishlists.movie_id = movies.id")
     render json: @wishlists.to_json
   end
 
