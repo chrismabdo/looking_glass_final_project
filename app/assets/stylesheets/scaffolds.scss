@@ -313,10 +313,6 @@ input[type=button] {
   #friend-greeting {
     border: 2px solid;
     border-radius: 25px;
-    background-image: 
-    linear-gradient(
-      rgb(243, 119, 70), #f5ae44
-    );
     width: 20%;
     display: block;
     margin-left: auto;
@@ -348,11 +344,29 @@ input[type=button] {
 
   .each-result {
     
-    border-color: rgb(255, 255, 255);
     background-color: rgb(243, 110, 57);
     text-align: center;
     margin-bottom: 5px;
     margin-right: 50px;
     border-radius: 5px;
     //z-index: 5;
+  }
+
+  .expand-btn {
+    margin-top: 5px; 
+    margin-left: 10px;
+    border-color:white;
+    border-radius: 16px;
+    cursor: pointer;
+    padding: 2px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-family: 'Jura', sans-serif;
+    background-image: 
+    linear-gradient(
+      #f56d44, rgb(255, 144, 80), 
+  
+    );
+    color: white;  
   }

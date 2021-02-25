@@ -39,7 +39,8 @@ class ShowWishlist extends React.Component {
             return <div class="user-tickets"> 
               <h3>{ wish.title }</h3>
               "{wish.note}"
-              <button type="button" id={index} onClick={this.showModal}>
+              <br></br>
+              <button className="expand-btn" type="button" id={index} onClick={this.showModal}>
                 Expand
               </button>
              </div>

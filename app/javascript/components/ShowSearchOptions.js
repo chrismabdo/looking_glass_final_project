@@ -54,7 +54,7 @@ class ShowSearchOptions extends React.Component {
         <div class="each-result">
           {result[0]}, {result[2]}
           
-          <button type="button" id={index} onClick={this.showModal}>
+          <button className="expand-btn" type="button" id={index} onClick={this.showModal}>
             Expand
           </button>
           
