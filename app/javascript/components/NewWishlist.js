@@ -53,7 +53,7 @@ class NewWishlist extends React.Component {
   render () {
     return (
       <form className='new-wishlist' onSubmit={this.handleSubmit} id="new-form">
-        <textarea type="text" value={this.state.value} onChange={this.handleChange} rows='2' cols='50' placeholder="Add new wishlist item..."/>
+        <textarea type="text" value={this.state.value} onChange={this.handleChange} rows='2' cols='50' placeholder="Something you want to watch..."/>
         <br />
         <button type="submit" value="Submit" id="new-note">New Wish</button>
       </form>
