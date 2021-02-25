@@ -24,8 +24,9 @@ class ShowRecommendation extends React.Component {
       <ul>
       {this.props.recommendations.map((recommendation) =>
         { if (recommendation.user_id === this.props.user.id) {
-            return <div> 
-              { recommendation.title }
+            return <div class="user-tickets"> 
+              <h3>{ recommendation.title } </h3>
+              "{ recommendation.note }"
               { this.props.currentUser.id == this.props.user.id ? null : <NewWishlistButton key={recommendation.id} movie_id={recommendation.movie_id} user={this.props.user} currentUser={this.props.currentUser}/>}
               </div>
             } 
