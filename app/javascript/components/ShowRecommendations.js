@@ -7,8 +7,7 @@ class ShowRecommendation extends React.Component {
     console.log('SHOWREC PROPS')
     console.log(this.props)
     this.state = {
-      show: false,
-      usersRecommendations: []
+      show: false
     }
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -39,7 +38,6 @@ class ShowRecommendation extends React.Component {
       <ul>
       {this.props.recommendations.map((recommendation, index) =>
         { if (recommendation.user_id === this.props.user.id) {
-            this.state.usersRecommendations.push(recommendation)
             return <div className="user-tickets"> 
               <h3>{ recommendation.title } </h3>
               "{ recommendation.note }"
