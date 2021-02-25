@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     add_flash_types :info
 
     protected
+  
 
   def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up) do |user_params|

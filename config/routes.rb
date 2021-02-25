@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :friendships
-  post '/accept_friend', to: 'friendships#accept_friend', as: "accept_friend"
-  delete '/delete_request', to: 'friendships#delete_request', as: "delete_request"
+  post '/accept_friend/:id', to: 'friendships#accept_friend', as: "accept_friend"
+  delete '/delete_request/:id', to: 'friendships#delete_request', as: "delete_request"
   resources :recommendations
 end
