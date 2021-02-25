@@ -54,7 +54,7 @@ class NewRecommendation extends React.Component {
     return (
       
       <form className='new-recommendation' onSubmit={this.handleSubmit} id="new-form">
-        <textarea type="text" value={this.state.value} onChange={this.handleChange} rows='2' cols='50' placeholder="Give mans a recommendation my G..."/>
+        <textarea type="text" value={this.state.value} onChange={this.handleChange} rows='2' cols='50' placeholder="Let your friends know what you thought of it..."/>
         <br />
         <button type="submit" value="Submit" id="new-note">New Recommendation</button>
       </form>

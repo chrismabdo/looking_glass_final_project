@@ -47,11 +47,11 @@ class ShowSearchOptions extends React.Component {
 
   render () {
     return (
-      <div class="search-result-list">
+      <div class="search-results-list">
           <h2> Your Results </h2>
       <ul>
       {this.props.results.map((result, index) =>
-        <div>
+        <div class="each-result">
           {result[0]}, {result[2]}
           
           <button type="button" id={index} onClick={this.showModal}>

@@ -12,16 +12,15 @@
 <%= render 'form', friendship: @friendship %>
 </div>
 <div class="friends">
-<h2> Your friendships </h2>
+<h2>Friends</h2>
 <% current_user.friends.each do |friend| %>
   <div>
   <%= link_to friend.username, friend %>
   </div>
 <% end %>
 </div>
-
-<div class="friends">
-<h2> Requests you've made </h2>
+<div class="friend-requests">
+<h2>Sent Requests</h2>
 <% current_user.pending_friends.each do |friend| %>
 <div class="sent-requests">
 <%= friend.username %>
@@ -29,8 +28,10 @@
 <% end %>
 </div>
 
-<div class="friends">
-<h2> Requests you've recieved </h2>
+
+
+<div class="friend-requests">
+<h2>Received Requests</h2>
 <% current_user.friend_requests.each do |friend| %>
 <div class="received-requests">
 <%= friend.username %>

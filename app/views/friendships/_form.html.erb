@@ -1,13 +1,8 @@
 <%= form_with(model: friendship) do |form| %>
 
  
-  <%= form.label :username %>
   <div class="field">
-    <%= form.text_field :username %>
+    <%= form.text_field :username, placeholder: "Enter Username"%>
   </div>
 
-
-  <div class="actions">
-    <%= form.submit 'Send Request' %>
-  </div>
 <% end %>
