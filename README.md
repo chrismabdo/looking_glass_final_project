@@ -1,43 +1,56 @@
+
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ 
 
-Things you may want to cover:
+  
+## Looking Glass - what is it for?
+Looking Glass is an app for movie (and, in the future, all media) fanatics and casual viewers alike. Looking Glass takes care of the problem of keeping track of all the things you want to watch, the things your friends tell you you should want to watch, and the things you've enjoyed.
 
-* Ruby version
+## How do I run it?
+Run: 
+``
+npm install
+``
+``
+bundle install
+``
+``
+rails db:migrate
+``
+``
+rails s
+``
 
-* System dependencies
+ ## Features
+ * Friends!
+ * [TMDB](https://www.themoviedb.org/?language=en-GB) database integration for nice things like posters, movie summaries and more!
+ * Wishlists and recommendation lists for you and your friends!
+ * Adding items directly to your wishlist from your friends' recommendations!
+ * Other stuff that took ages to do!
+ 
+  ## Tech Stack
+  * Back-end: Ruby on Rails
+  * Database: SQLite3
+  * Front-end: React.js & HTML
+  * Styling: CSS
+  
+  ## Testing Libraries
 
-* Configuration
+- rspec-rails 
 
-* Database creation
+- capybara 
 
-* Database initialization
+- simplecov 
 
-* How to run the test suite
+- shoulda-matchers
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-
-RUN NPM INSTALL TO MAKE THE SERVER WORK!!!!
-Also run bundle exec rails webpacker:install
-run rails webpacker:install:react
-run rails generate react:install
-
-Instructions for Setting up modules for Material UI (searchbar):
-npm install @material-ui/core
-npm install @material-ui/lab
+- factory_bot_rails 
 
 
-Gems installed for testing:
-- rspec-rails - testing framework for ruby on rails
-- capybara - for feature tests
-- simplecov - for test coverage
-- shoulda-matchers - provides testing for validations on models
-- factory_bot_rails - to create fake users when working with devise 
+## Built by
+* [Ian Fleming](https://github.com/iantfleming)
+* [Sarah Power](https://github.com/SarahJoniPower)
+* [Sujeevan Rajagopalan](https://github.com/sujee09)
+* [Ollie Norman](https://github.com/ollienorman)
+* [Chris Abdo](https://github.com/chrismabdo)
